@@ -5,6 +5,7 @@ The aim of this procedure is to retrieve pairs of ohnologuous genes from a Synma
 
 ## Procedure
 ### 1- Synmap analysis
+
 The first step is to perform a SynMap analysis (https://genomevolution.org/CoGe/SynMap.pl) and inputing two times the same genome (see SynMap doc). Then download the following file :
 
 ![alt text](https://github.com/ndaccord/ohnologuous_genes_parser/blob/master/images/synmap_output.png?raw=true)
@@ -12,8 +13,8 @@ The first step is to perform a SynMap analysis (https://genomevolution.org/CoGe/
 ### 2- *filter_ohnologuous_genes.py* use
 
 #### Description
-
 This script parses the DAGChainer output in order to retrieve pairs of ohnologuous genes which are inside large enough synteny windows to minimize noise.
+
 #### Usage
 ```bash
 python filter_ohnologuous_genes.py input_file output_file min_window_size

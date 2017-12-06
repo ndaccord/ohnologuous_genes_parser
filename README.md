@@ -1,8 +1,8 @@
-# ohnologuous genes parser
+# ohnologous genes parser
 
 ## Aim
 
-The aim of this procedure is to retrieve pairs of ohnologuous genes from a Synmap analysis between two of the same genome.
+The aim of this procedure is to retrieve pairs of ohnologous genes from a Synmap analysis between two of the same genome.
 
 ## Procedure
 ### 1 - SynMap analysis
@@ -10,14 +10,14 @@ The first step is to perform a SynMap analysis (https://genomevolution.org/CoGe/
 
 ![alt text](https://github.com/ndaccord/ohnologuous_genes_parser/blob/master/images/synmap_output.png?raw=true)
 
-### 2- *filter_ohnologuous_genes.py* use
+### 2- *filter_ohnologous_genes.py* use
 
 #### Description
-This script parses the DAGChainer output in order to retrieve pairs of ohnologuous genes which are inside large enough synteny windows to minimize noise.
+This script parses the DAGChainer output in order to retrieve pairs of ohnologous genes which are inside large enough synteny windows to minimize noise.
 
 #### Usage
 ```bash
-python filter_ohnologuous_genes.py input_file output_file min_window_size
+python filter_ohnologous_genes.py input_file output_file min_window_size
 ```
 * **input_file** : the DAGchainer output file shown above
 * **output_file** : path to the output file
@@ -25,5 +25,5 @@ python filter_ohnologuous_genes.py input_file output_file min_window_size
 
 #### Output
 The output (**output_file** parameter) is a tab-separated file with the two following columns :
-* **1** : first gene of the ohnologuous pair
-* **2** : second gene of the ohnologuous pair
+* **1** : first gene of the ohnologous pair
+* **2** : second gene of the ohnologous pair

@@ -35,9 +35,30 @@ def get_ohnologuous_genes(filtered_window_dict):
     """
     ohnologuous_genes = []
 
+    genes_context_dict = {}
+
     for window in filtered_window_dict:
+        window_effective_size = max(filtered_window_dict[window]["chrA_window_size"], filtered_window_dict[window]["chrB_window_size"])
+
         for gene_pair in filtered_window_dict[window]["gene_pairs"]:
-            if gene_pair not in ohnologuous_genes:
+            gene_pair_list = list(gene_pair)
+            check_list = []
+
+            for gene in gene_pair_list:
+                if gene not in genes_context_dict:
+                    genes_context_dict[gene] = 0
+                if window_effective_size > genes_context_dict[gene]:
+                    check_list.append("o")
+                else:
+                    check_list.append("x")
+
+            if "x" not in check_list:
+                for ohnologuous_pair in ohnologuous_genes:
+                    if (gene_pair_list[0] in ohnologuous_pair) or (gene_pair_list[1] in ohnologuous_pair):
+                        ohnologuous_genes.remove(ohnologuous_pair)
+
+                for gene in gene_pair_list:
+                    genes_context_dict[gene] = window_effective_size
                 ohnologuous_genes.append(gene_pair)
 
     return ohnologuous_genes
